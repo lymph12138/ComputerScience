@@ -82,5 +82,24 @@ getchar() putchar()：
 文件，流和键盘输入：
     EOF：文件结尾
 重定向和文件：
+    if(scanf("%d %d", &rows, &cols) != 2)
+        break;
+    while(getchar() !='\n')
+        continue;
+    
+    while(scanf("%ld", &n) ==1 && n >=0)
+        statement;
+        
+函数：在int函数前声明(不带分号),定义可以在int函数之后
+    void starbar(void)
+    int average(int a, int b)
+递归：
+    
+    
+    
+    
+    
+    
+    
     
         
