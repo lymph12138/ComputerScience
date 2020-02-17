@@ -49,7 +49,7 @@ C99标准 _Bool _Complex _Imaginary
     long 与 int 大小相同时 unsigned int->long 
     short 与 char 升级到 int 或 unsigned int
     截断赋值法
-    (int)1.8=1
+    (int)1.8 = 1
 #include <ctype.h>：
     isalpha():检验是否为字符
 #include <iso646.h>：
@@ -93,13 +93,17 @@ getchar() putchar()：
 函数：在int函数前声明(不带分号),定义可以在int函数之后
     void starbar(void)
     int average(int a, int b)
-递归：
+指针：一个值为内存地址的变量（或数据对象）
+    声明： 
+        pointer ptr;//错误方法
+        int * pi   char * pc  float * pf, * pg;//正确表达，* 与 变量名之间空格可有可无 
+    ptr = &pooh;//把pooh的地址赋给ptr
+    val = *ptr; //找出ptr指向的值
+    val = pooh;
+    应用：
+        void interchange(int * u, int * v)
+        int function1(int num) function(x)//传递x的值
+        int function2(ont * ptr) function2(&x)//传递x的地址
+变量：名称、地址和值
+    &运算符访问地址，*运算符访问地址上的值
     
-    
-    
-    
-    
-    
-    
-    
-        
