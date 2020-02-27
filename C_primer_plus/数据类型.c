@@ -106,4 +106,5 @@ getchar() putchar()：
         int function2(ont * ptr) function2(&x)//传递x的地址
 变量：名称、地址和值
     &运算符访问地址，*运算符访问地址上的值
+
     
