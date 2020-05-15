@@ -42,3 +42,4 @@ ElementType DeleteQ(Queue PtrQ)
 
 链式存储
 
+自行补充
