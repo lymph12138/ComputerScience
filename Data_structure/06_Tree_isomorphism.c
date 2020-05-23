@@ -41,7 +41,72 @@ E 2 -                                      A 1 4
 Yes                                        NO
 */
 #include <stdio.h>
+#define MaxTree 10
+#define ElementType char
+#define Tree int
+#define Null -3
+struct TreeNode
+{
+    ElementType Element;
+    Tree Left;
+    Tree Right;
+}T1[MaxTree], T2[MaxTree];
+Tree BulidTree(struct TreeNode T[]);
+int Isomorphic(Tree R1, Tree R2);
 int main()
 {
+    Tree R1, R2;
     
+    R1 = BulidTree(T1);
+    R2 = BulidTree(T2);
+    if(Isomorphic(R1, R2))
+        printf("Yes\n");
+    else
+        printf("No\n");
+        
+    return 0;
+}
+Tree BulidTree(struct TreeNode T[])
+{
+    int N;
+    int cnt = 0;
+    Tree Root = -3;
+    scanf("%d\n", &N);
+    if(N)
+    {
+        char cl, cr;
+        for(int i=0; i<N; i++)
+        {
+            scanf("%c %c %c\n", &T[i].Element, &cl, &cr);
+            T[i].Left = cl-48;
+            T[i].Right = cr-48;
+        }
+        for(int i=0; i<N; i++)
+        {
+            if(T[i].Left>=0)
+                cnt+=T[i].Left;
+            if(T[i].Right>=0)
+                cnt+=T[i].Right;  
+        }
+        Root = N*(N-1)/2-cnt;
+    }
+    return Root;
+}
+int Isomorphic(Tree R1, Tree R2)
+{
+    if(R1==Null && R2==Null)
+        return 1;
+    if(R1==Null&&R2!=Null || R1!=Null&&R2==Null)
+        return 0;
+    if(T1[R1].Element!=T2[R2].Element)
+        return 0;
+    if(T1[R1].Left==Null && T2[R2].Left==Null)
+        return Isomorphic(T1[R1].Right, T2[R2].Right);
+    if(T1[R1].Left!=Null && T2[R2].Left!=Null && 
+        T1[T1[R1].Left].Element==T2[T2[R2].Left].Element)
+        return Isomorphic(T1[R1].Left, T2[R2].Left) && 
+               Isomorphic(T1[R1].Right, T2[R2].Right);
+    else
+        return Isomorphic(T1[R1].Left, T2[R2].Right) &&
+               Isomorphic(T1[R1].Right, T2[R2].Left);
 }
