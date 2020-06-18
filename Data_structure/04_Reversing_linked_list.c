@@ -54,3 +54,7 @@ int FindAd(int Ad, int Add[])
         }
 }
 
+
+//链表法
+#include <stdio.h>
+
