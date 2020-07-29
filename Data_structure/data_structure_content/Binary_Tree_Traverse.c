@@ -118,3 +118,49 @@ void LevelOrderTraversal(BinTree BT)
             AddQ(Q, T->Right);
     }
 }
+
+已知先序，中序，求后序
+#include <stdio.h>
+int in[] = {3, 2, 4, 1, 6, 5};
+int pre[] = {1, 2, 3, 4, 5, 6};
+void post(int root, int start, int end)
+{
+    if(start > end)
+        return ;
+    int i;
+    for(i=start; i<end; i++)
+        if(in[i] == pre[root])
+            break;
+    post(root+1, start, i-1);
+    post(root+1-start+i, i+1, end);
+    printf("%d ", pre[root]);
+}
+int main()
+{
+    post(0, 0, 5);
+    
+    return 0;
+}
+
+已知后序，中序，求先序
+#include <stdio.h>
+int in[] = {3, 2, 4, 1, 6, 5};
+int post[] = {3, 4, 2, 6, 5, 1};
+void pre(int root, int start, int end)
+{
+  if(start > end)
+    return ;
+  int i;
+  for(i=start; i<end; i++)
+    if(in[i] == post[root])
+      break;
+  printf("%d ", post[root]);
+  pre(root-1-end+i, start, i-1);
+  pre(root-1, i+1, end);
+}
+int main()
+{
+  pre(5, 0, 5);
+
+  return 0;
+}

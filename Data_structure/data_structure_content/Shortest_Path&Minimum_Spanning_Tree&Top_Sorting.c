@@ -11,7 +11,7 @@ void Dijkstra(Vertex s)
         collected[v] = true;
         for(v的每个邻接点w)
             if(collected[w]==false)
-                if(dist[v]+E<v, w> <dist[w])
+                if(dist[v]+E<v, w> < dist[w])
                 {
                     dist[w] = dist[v]+E<v, w>;
                     path[w] = v;

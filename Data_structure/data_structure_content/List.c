@@ -88,7 +88,7 @@ int Length(List PtrL)
 {
     List p = PtrL;
     int j = 0;
-    while(p)
+    while(p).
     {
         p = p->Next;
         j++;
