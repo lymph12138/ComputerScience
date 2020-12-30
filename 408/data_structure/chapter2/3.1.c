@@ -1,3 +1,4 @@
+p52(1~25)
 1.设计一个递归算法，删除不带头结点的单链表中所有值为x的值
 void DeleteX(LinkList &L, ElemType x)
 {
